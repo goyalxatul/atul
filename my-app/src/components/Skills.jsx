@@ -38,10 +38,6 @@ const Skills = () => {
 
   return (
     <section className="h-auto min-h-screen flex flex-col items-center justify-center bg-black px-4 md:px-8 pt-16 md:pt-24">
-      {/* Random text */}
-      <div className="text-white text-center mb-8 md:mb-12">
-        <p className="text-lg md:text-xl">Here are some of the technologies I've been working with:</p>
-      </div>
       
       {/* Skills section */}
       <div className="w-full max-w-3xl bg-black text-white shadow-lg rounded-lg p-4 md:p-6">
