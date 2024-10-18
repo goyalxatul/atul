@@ -3,19 +3,14 @@ import { FaArrowRight } from 'react-icons/fa'; // Import arrow icon
 
 const projects = [
   {
-    title: 'Project One',
-    description: 'Brief description of Project One.',
-    githubLink: 'https://github.com/yourusername/project-one',
+    title: 'Nature Delight Website',
+    description: 'Developed and launched a fully responsive website for Nature Delight Foundation, an NGO dedicated to environmental conservation. Led the project from concept to completion, incorporating key features such as a news ticker, donation form, and interactive content sections.',
+    githubLink: 'https://github.com/goyalxatul/natureDelight',
   },
   {
-    title: 'Project Two',
-    description: 'Brief description of Project Two.',
-    githubLink: 'https://github.com/yourusername/project-two',
-  },
-  {
-    title: 'Project Three',
-    description: 'Brief description of Project Three.',
-    githubLink: 'https://github.com/yourusername/project-three',
+    title: 'Demographic Location Water Surface Mapping',
+    description: 'This project addresses challenges related to water resource management by mapping surface water bodies using satellite imagery and digital image processing techniques and predicting the future.',
+    githubLink: 'https://github.com/goyalxatul/Demographic_Location_Water_Surface_Mapping',
   },
 ];
 
@@ -37,7 +32,7 @@ const Projects = () => {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline flex items-center mt-2"
+              className="text-yellow-600 hover:underline flex items-center mt-2"
             >
               View on GitHub <FaArrowRight className="ml-2 transform rotate-45" />
             </a>
