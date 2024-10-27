@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 const Hero = () => {
   const nameRef = useRef(null);
   const aboutRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -27,35 +28,64 @@ const Hero = () => {
         delay: 1,
       }
     );
+
+    // Function to animate the image
+    const moveImage = () => {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth < 768) { // Mobile view
+        gsap.to(imageRef.current, {
+          x: 5,
+          y: 5,
+          duration: 1.5,
+          ease: 'power2.out',
+          yoyo: true,
+          repeat: -1,
+        });
+      } else { // Desktop view
+        gsap.to(imageRef.current, {
+          x: 10,
+          y: 10,
+          duration: 1.5,
+          ease: 'power2.out',
+          yoyo: true,
+          repeat: -1,
+        });
+      }
+    };
+
+    moveImage();
   }, []);
 
-  const handleConnectClick = () => {
-    window.open('https://your-google-form-url.com', '_blank');
-  };
-
   return (
-    <section className="h-screen flex items-center justify-center bg-black px-8">
-      <div className="flex flex-col items-start text-center">
-        <h1
-          className="text-6xl font-bold text-white mb-4"
-          ref={nameRef}
+    <section className="h-screen flex flex-col md:flex-row items-center justify-between bg-black px-4 md:px-8">
+      <div className="flex flex-col items-start text-left max-w-lg mb-8 md:mb-0">
+        <h1 
+          className="text-6xl font-bold text-white mb-4" 
+          ref={nameRef} 
+          style={{ whiteSpace: 'nowrap' }} // Prevent line break
         >
-          Atul Goyal
+          Hey, I'm Atul Goyal
         </h1>
-        <p
-          className="text-lg text-white max-w-xl mb-4"
-          ref={aboutRef}
-        >
-          Hey there, I'm Atul Goyal! Currently a third-year student with a strong foundation in the MERN stack ( Express.js, React, and Node.js), I have a deep passion for both technology and creativity. Recently, I’ve been expanding my expertise by diving into DevOps, aiming to streamline development processes and enhance deployment efficiency. Whether it's crafting dynamic user interfaces, building scalable server-side solutions, or integrating robust DevOps practices, I’m dedicated to bringing innovative ideas to life and thriving in the ever-evolving tech landscape.
+        <p className="text-lg text-white max-w-xl mb-4" ref={aboutRef}>
+          Currently a third-year student with a strong foundation in the MERN stack, I have a deep passion for both technology and creativity. Recently, I’ve been expanding my expertise by diving into DevOps, aiming to streamline development processes and enhance deployment efficiency.
           <br /><br />
         </p>
         <a 
           href="/path-to-your-resume.pdf" // Replace with your resume URL
-          className="bg-white text-black px-2 py-1 rounded-md border border-gray-300 hover:bg-gray-100 transition font-bold border-b-2 border-purple-600"
+          className="bg-white text-black px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100 transition font-bold border-b-2 border-yellow-400"
           download
         >
           Resume
         </a>
+      </div>
+      <div className="flex justify-center items-center">
+        <img
+          src="setup4.png" // Ensure this points to the correct image in the public folder
+          alt="Atul Goyal"
+          className="w-1/2 md:w-2/5 max-w-xs rounded-lg shadow-lg md:mt-0 mt-8 mb-16" // Adjusted width for responsiveness
+          ref={imageRef}
+        />
       </div>
     </section>
   );
