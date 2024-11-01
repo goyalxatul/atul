@@ -99,71 +99,81 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`fixed top-0 right-0 h-full bg-black text-white z-50 shadow-lg transform ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300 ease-in-out`}
+      {/* Mobile Menu */}
+<div
+  className={`fixed top-0 right-0 h-full bg-black text-white z-50 shadow-lg transform ${
+    isOpen ? 'translate-x-0' : 'translate-x-full'
+  } transition-transform duration-300 ease-in-out`}
+>
+  <div className="p-4">
+    <button onClick={toggleMenu} className="text-2xl mb-6">
+      <AiOutlineClose />
+    </button>
+    <ul className="text-lg space-y-4">
+      <Link to="/skills" onClick={toggleMenu}>
+        <li
+          className={`cursor-pointer font-bold ${
+            isActive('/skills') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+          } transition`}
+        >
+          Skills
+        </li>
+      </Link>
+      <Link to="/about" onClick={toggleMenu}>
+        <li
+          className={`cursor-pointer font-bold ${
+            isActive('/about') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+          } transition`}
+        >
+          About
+        </li>
+      </Link>
+      <Link to="/projects" onClick={toggleMenu}>
+        <li
+          className={`cursor-pointer font-bold ${
+            isActive('/projects') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+          } transition`}
+        >
+          Projects
+        </li>
+      </Link>
+      <li>
+        <button
+          onClick={handleConnectClick}
+          className="bg-gray-700 text-white px-3 py-1 rounded-md border border-yellow-500 hover:bg-yellow-500 transition font-bold"
+        >
+          Let's Connect
+        </button>
+      </li>
+    </ul>
+    <div className="mt-6 flex space-x-4">
+      <a
+        href="https://www.instagram.com/atulxgoyal/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-2xl hover:text-yellow-500"
       >
-        <div className="p-4">
-          <button onClick={toggleMenu} className="text-2xl mb-6">
-            <AiOutlineClose />
-          </button>
-          <ul className="text-lg space-y-4">
-            <Link to="/skills" onClick={toggleMenu}>
-              <li
-                className={`cursor-pointer font-bold ${
-                  isActive('/skills') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
-                } transition`}
-              >
-                Skills
-              </li>
-            </Link>
-            <Link to="/projects" onClick={toggleMenu}>
-              <li
-                className={`cursor-pointer font-bold ${
-                  isActive('/projects') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
-                } transition`}
-              >
-                Projects
-              </li>
-            </Link>
-            <li>
-              <button
-                onClick={handleConnectClick}
-                className="bg-gray-700 text-white px-3 py-1 rounded-md border border-yellow-500 hover:bg-yellow-500 transition font-bold"
-              >
-                Let's Connect
-              </button>
-            </li>
-          </ul>
-          <div className="mt-6 flex space-x-4">
-            <a
-              href="https://www.instagram.com/atulxgoyal/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl hover:text-yellow-500"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://github.com/goyalxatul"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl hover:text-yellow-500"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/atulxgoyal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl hover:text-yellow-500"
-            >
-              <FaLinkedin />
-            </a>
-          </div>
-        </div>
-      </div>
+        <FaInstagram />
+      </a>
+      <a
+        href="https://github.com/goyalxatul"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-2xl hover:text-yellow-500"
+      >
+        <FaGithub />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/atulxgoyal"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-2xl hover:text-yellow-500"
+      >
+        <FaLinkedin />
+      </a>
+    </div>
+  </div>
+</div>
     </nav>
   );
 };
