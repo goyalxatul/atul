@@ -13,8 +13,9 @@ const Navbar = () => {
   };
 
   const handleConnectClick = () => {
-    window.location.href = 'https://your-connect-link.com';
+    window.location.href = 'mailto:atulxgoyal@gmail.com';
   };
+  
 
   const isActive = (path) => location.pathname === path;
 
