@@ -9,7 +9,6 @@ const items = [
 
 const Footer = () => {
     return (
-        
         <div className="w-full bg-black text-gray-300 py-6 px-4">
             <div className="max-w-[1240px] mx-auto flex flex-col items-center">
                 {/* Centered Text */}
@@ -19,15 +18,21 @@ const Footer = () => {
 
                 {/* Social icons */}
                 <div className="flex justify-center space-x-4">
-                    {items.map((x, index) => (
-                        <a key={index} href={x.link} className="hover:text-white cursor-pointer" target="_blank" rel="noopener noreferrer">
-                            <span className="text-2xl">{x.icon}</span>
+                    {items.map((item, index) => (
+                        <a
+                            key={index}
+                            href={item.link}
+                            className="hover:text-white cursor-pointer transition duration-300"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span className="text-2xl">{item.icon}</span>
                         </a>
                     ))}
                 </div>
 
                 {/* Footer copyright */}
-                <p className="text-white text-center py-2 mt-4">
+                <p className="text-white text-center py-2 mt-4 text-sm">
                     &copy; 2024 / Atul Goyal
                 </p>
             </div>
