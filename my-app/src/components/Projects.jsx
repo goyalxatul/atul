@@ -12,6 +12,11 @@ const projects = [
     description: 'This project addresses challenges related to water resource management by mapping surface water bodies using satellite imagery and digital image processing techniques and predicting the future.',
     githubLink: 'https://github.com/goyalxatul/Demographic_Location_Water_Surface_Mapping',
   },
+  {
+    title: 'Creche Mern Stack Project',
+    description: 'This project addresses challenges related to Professionals have trouble  managing their babies and address the solution by providing nanny based services . we have integerated chatbot with gemini api , razorpay payment integeration , cloudinary , nodmailer.',
+    githubLink: 'https://github.com/goyalxatul/creche_project',
+  },
 ];
 
 const Projects = () => {
