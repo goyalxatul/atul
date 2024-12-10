@@ -128,7 +128,7 @@ const Navbar = () => {
             <Link to="/" onClick={toggleMenu}>
               <li
                 className={`cursor-pointer font-bold ${
-                  isActive('/') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+                  isActive('/') ? 'border-b-2 border-gray-500' : 'hover:border-gray-500'
                 } transition`}
               >
                 Home
@@ -137,7 +137,7 @@ const Navbar = () => {
             <Link to="/skills" onClick={toggleMenu}>
               <li
                 className={`cursor-pointer font-bold ${
-                  isActive('/skills') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+                  isActive('/skills') ? 'border-b-2 border-gray-500' : 'hover:border-gray-500'
                 } transition`}
               >
                 Skills
@@ -146,7 +146,7 @@ const Navbar = () => {
             <Link to="/about" onClick={toggleMenu}>
               <li
                 className={`cursor-pointer font-bold ${
-                  isActive('/about') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+                  isActive('/about') ? 'border-b-2 border-gray-500' : 'hover:border-gray-500'
                 } transition`}
               >
                 About
@@ -155,7 +155,7 @@ const Navbar = () => {
             <Link to="/projects" onClick={toggleMenu}>
               <li
                 className={`cursor-pointer font-bold ${
-                  isActive('/projects') ? 'border-b-2 border-yellow-500' : 'hover:border-yellow-500'
+                  isActive('/projects') ? 'border-b-2 border-gray-500' : 'hover:border-gray-500'
                 } transition`}
               >
                 Projects
@@ -164,7 +164,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={handleConnectClick}
-                className="bg-gray-700 text-white px-3 py-1 rounded-md border border-yellow-500 hover:bg-yellow-500 transition font-bold"
+                className="bg-gray-700 text-white px-3 py-1 rounded-md border border-gray-500 hover:bg-gray-500 transition font-bold"
               >
                 Let's Connect
               </button>
@@ -175,7 +175,7 @@ const Navbar = () => {
               href="https://www.instagram.com/atulxgoyal/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl hover:text-yellow-500"
+              className="text-2xl hover:text-gray-500"
             >
               <FaInstagram />
             </a>
@@ -183,7 +183,7 @@ const Navbar = () => {
               href="https://github.com/goyalxatul"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl hover:text-yellow-500"
+              className="text-2xl hover:text-gray-500"
             >
               <FaGithub />
             </a>
@@ -191,7 +191,7 @@ const Navbar = () => {
               href="https://www.linkedin.com/in/atulxgoyal"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl hover:text-yellow-500"
+              className="text-2xl hover:text-gray-500"
             >
               <FaLinkedin />
             </a>
