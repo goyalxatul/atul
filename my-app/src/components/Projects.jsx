@@ -1,58 +1,71 @@
-import React from 'react';
-import { FaArrowRight } from 'react-icons/fa'; // Import arrow icon
+import React from "react";
 
 const projects = [
   {
-    title: 'Nature Delight Website',
-    description: 'Developed and launched a fully responsive website for Nature Delight Foundation, an NGO dedicated to environmental conservation. Led the project from concept to completion, incorporating key features such as a news ticker, donation form, and interactive content sections.',
-    githubLink: 'https://github.com/goyalxatul/natureDelight',
+    id: 1,
+    title: "Nature Delight Website",
+    description: "Web Design for Nature Delight Foundation",
+    image: "/abz.png", // Replace with the actual image path
+    link: "https://naturedelightfoundation.vercel.app/", // Example link
   },
   {
-    title: 'Demographic Location Water Surface Mapping',
-    description: 'This project addresses challenges related to water resource management by mapping surface water bodies using satellite imagery and digital image processing techniques and predicting the future.',
-    githubLink: 'https://github.com/goyalxatul/Demographic_Location_Water_Surface_Mapping',
-  },
-  {
-    title: 'Creche Mern Stack Project',
-    description: 'This project addresses challenges related to Professionals have trouble  managing their babies and address the solution by providing nanny based services . we have integerated chatbot with gemini api , razorpay payment integeration , cloudinary , nodmailer.',
-    githubLink: 'https://github.com/goyalxatul/creche_project',
+    id: 2,
+    title: "Demographic Area Water Surface Mapping ",
+    description: "AIML project to demostrate and Predict",
+    image: "/dsvm5.png", // Replace with the actual image path
+    link: "https://github.com/Abhishek-2502/Demographic_Location_Water_Surface_Mapping", // Example link
   },
 ];
 
 const Projects = () => {
   return (
-    <section className="h-screen bg-black mt-16 flex flex-col items-start justify-start px-4 sm:px-6 md:px-10">
-      {/* Projects title just below the navbar */}
-      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide mt-4">
-        Projects
-      </h1>
+    <section className="bg-black text-white py-16 px-6">
+      <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
 
-      {/* Projects list */}
-      <div className="mt-6 space-y-6">
-        {projects.map((project, index) => (
-          <div key={index} className="text-white">
-            <h2 className="text-2xl sm:text-3xl font-semibold">{project.title}</h2>
-            <p className="text-base sm:text-lg">{project.description}</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="relative w-full max-w-lg mx-auto bg-gray-800 rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105 group"
+          >
+            {/* Project Image */}
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-80 object-cover rounded-t-3xl"
+            />
+
+            {/* Overlay with Title and Description */}
+            <div className="absolute bottom-0 w-full px-6 py-4 bg-gradient-to-b from-transparent to-black rounded-b-3xl">
+              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+              <p className="text-gray-300">{project.description}</p>
+            </div>
+
+            {/* Hover "Visit Website" Button */}
             <a
-              href={project.githubLink}
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-600 hover:underline flex items-center mt-2"
+              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:scale-110"
             >
-              View on GitHub <FaArrowRight className="ml-2 transform rotate-45" />
+              <div className="text-white text-xl font-semibold flex items-center space-x-2 px-8 py-2 rounded-full border-2 border-white hover:border-opacity-80">
+                <span>Visit Website</span>
+                <span className="text-2xl transform group-hover:rotate-45 transition-transform duration-300">↗</span>
+              </div>
             </a>
           </div>
         ))}
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .group:hover .group-hover\:opacity-100 {
+            opacity: 0 !important; /* Hide the hover button on mobile */
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
 export default Projects;
-
-
-
-
-
-
-

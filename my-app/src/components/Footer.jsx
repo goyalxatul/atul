@@ -1,43 +1,25 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
-
-const items = [
-    { name: 'LinkedIn', link: 'http://linkedin.com', icon: <FaLinkedin /> },
-    { name: 'GitHub', link: 'http://github.com', icon: <FaGithub /> },
-    { name: 'Instagram', link: 'http://instagram.com', icon: <FaInstagram /> },
-];
+import { FaTwitter, FaLinkedin, FaDribbble } from 'react-icons/fa';
 
 const Footer = () => {
-    return (
-        <div className="w-full bg-black text-gray-300 py-6 px-4">
-            <div className="max-w-[1240px] mx-auto flex flex-col items-center">
-                {/* Centered Text */}
-                <p className="text-2xl font-bold text-white mb-4">
-                    Atul Goyal
-                </p>
-
-                {/* Social icons */}
-                <div className="flex justify-center space-x-4">
-                    {items.map((item, index) => (
-                        <a
-                            key={index}
-                            href={item.link}
-                            className="hover:text-white cursor-pointer transition duration-300"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span className="text-2xl">{item.icon}</span>
-                        </a>
-                    ))}
-                </div>
-
-                {/* Footer copyright */}
-                <p className="text-white text-center py-2 mt-4 text-sm">
-                    &copy; 2024 / Atul Goyal
-                </p>
-            </div>
-        </div>
-    );
+  return (
+    <footer className="bg-black py-6">
+      <div className="flex justify-center space-x-6 mb-4">
+        {/* Social Media Icons */}
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <FaTwitter className="text-gray-600 text-2xl hover:text-gray-900 transition-colors" />
+        </a>
+        <a href="www.linkedin.com/in/atulxgoyal" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin className="text-gray-600 text-2xl hover:text-gray-900 transition-colors" />
+        </a>
+      </div>
+      
+      {/* Copyright Text */}
+      <div className="text-center text-gray-500 text-sm">
+        © {new Date().getFullYear()} Atul Goyal. All rights reserved.
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

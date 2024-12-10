@@ -1,83 +1,94 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaPlus, FaTimes } from 'react-icons/fa';
+import './styles.css';
 
 const About = () => {
-  // Animation variants
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+  const [isIntroVisible, setIsIntroVisible] = useState(true);
+  const [activeCard, setActiveCard] = useState(null);
+
+  // Hide intro screen after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsIntroVisible(false);
+    }, 3000); // 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Toggle card modal
+  const toggleCard = (index) => {
+    setActiveCard(activeCard === index ? null : index);
   };
 
+  const closeModal = () => setActiveCard(null);
+
   return (
-    <section className="bg-black-900 py-10 px-4 md:px-8 lg:px-16">
-      <div className="max-w-5xl mx-auto text-center">
-        <h1 className="text-4xl font-bold text-white mb-8">About Me</h1>
-        <p className="text-gray-300 mb-8">
-          I am a passionate and dedicated individual pursuing a Bachelor of Technology in Computer Science and Engineering at Symbiosis Institute of Technology. With a strong interest in technology and a commitment to continuous learning, I strive to apply my skills in meaningful projects that make a difference. My journey so far has been marked by achievements in hackathons and volunteer work, where I have gained valuable experience in teamwork, problem-solving, and community service.
-        </p>
+    <div className="min-h-screen bg-black text-white">
+      <AnimatePresence>
+        {isIntroVisible && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center text-gradient-to-r from-purple-800 via-pink-600 to-yellow-500 bg-black z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ duration: 1 }}
+            >
+              <h1 className="text-5xl font-bold">hi, atul here again!</h1>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        <motion.div
-  className="bg-black shadow-lg rounded-lg p-6 mb-10"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
-  variants={cardVariants}
->
-  <h2 className="text-2xl font-semibold text-yellow-400 mb-4">Education</h2>
-  <p className="text-gray-300 mb-2">
-    <strong>1. Bachelor of Technology (B.Tech CSE)</strong> - Symbiosis Institute of Technology, Class of 2026
-  </p>
-  <p className="text-gray-300 mt-4 mb-2">
-    <strong>2. The Century School</strong> - Non Medical (PCM)
-  </p>
-</motion.div>
+      {!isIntroVisible && (
+        <>
+          {/* About Information Section */}
+          <section>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-10 py-10 bg-black">
+              {/* Image Section */}
+              <div className="relative w-[230px] h-[390px] overflow-hidden rounded-[70px] transform transition-transform duration-300 hover:scale-105">
+                <img
+                  src="/atul6.jpg"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
+              {/* Text Section */}
+              <div className="text-center md:text-left max-w-lg">
+                <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 leading-snug">
+                  I'm a MERN Stack Developer<br />
+                  working remotely from <br />
+                  Pune, India.
+                </h1>
+                <p className="mt-4 text-gray-600 text-lg">
+                  Originally from Karnal, Haryana, India, I'm a penultimate
+                  student at Symbiosis Institute of Technology Pune, India. Over
+                  the past few years, I've been involved in various projects
+                  utilizing modern web technologies, ML projects, etc. I
+                  specialize in frontend and backend development, focusing on
+                  delivering seamless user experiences. Currently enthusiastic
+                  about DevOps and the continuous creation and delivery process.
+                </p>
+                <p className="mt-4 text-gray-600 text-lg">
+                  These days, I focus on DevOps and learning new technologies.
+                </p>
+              </div>
+            </div>
+          </section>
 
-        <motion.div
-          className="bg-black shadow-lg rounded-lg p-6 mb-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          variants={cardVariants}
-        >
-          <h2 className="text-2xl font-semibold text-yellow-400 mb-4">
-            Co-Curricular & Extra-Curricular Achievements
-          </h2>
-          <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li>Top 10, Hack Genesis Hackathon 2023 - Showcased an AI/ML + Web Development project.</li>
-            <li>Participated in the SMART INDIA HACKATHON.</li>
-            <li>Fastest student calculator from year 2015 to 2017 at my school </li>
-            <li>Best Calligraphist of my School from the year 2013 to 2018 in English as well as Hindi Calligraphy</li>
-            <li>Participated and Won many Written Quiz competition </li>
-            <li>Participation and representation in Multiple sports ,Poem recitations, Debates and Role play competition </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          className="bg-black shadow-lg rounded-lg p-6 mb-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          variants={cardVariants}
-        >
-          <h2 className="text-2xl font-semibold text-yellow-400 mb-4">
-            Volunteer Experience
-          </h2>
-          <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li>
-              Volunteer, Nature Delight Foundation - Provided web development, technical help, and contributed to fundraising initiatives.
-            </li>
-          </ul>
-        </motion.div>
-      </div>
-    </section>
+          {/* Projects Section */}
+          
+        </>
+      )}
+    </div>
   );
 };
 
 export default About;
-
-
 
