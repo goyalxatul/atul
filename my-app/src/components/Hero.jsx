@@ -28,10 +28,16 @@ const Hero = () => {
     setTimeout(() => setAvatarClicked(false), 500);
   };
 
-  const handleDownloadCV = () => {
-    // Open the file in a new tab
-    window.open(process.env.PUBLIC_URL + "/resume.pdf", "_blank");
+  const handleResumeDownload = () => {
+    const link = document.createElement("a");
+    link.href =
+      "https://docs.google.com/document/d/1hifq8ooMhFI3o9OYauCq8OoDDbu2BUq-G6NRSxWQpqE/export?format=pdf";
+    link.download = "Atul_Goyal_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
+
   return (
     <section className="h-screen flex flex-col items-center justify-center bg-black text-center px-4 md:px-8 relative overflow-hidden">
       {/* Floating Dots */}
@@ -73,12 +79,15 @@ const Hero = () => {
         applications and currently learning DevOps.
       </p>
 
-      <button
-        className="bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 text-white px-6 py-2 rounded-full font-bold hover:shadow-md transition"
-        onClick={handleDownloadCV}
-      >
-        My Resume
-      </button>
+      {/* New Resume Download Button */}
+      <div>
+        <button
+          onClick={handleResumeDownload}
+          className="bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition transform hover:scale-105"
+        >
+          My Resume
+        </button>
+      </div>
     </section>
   );
 };
